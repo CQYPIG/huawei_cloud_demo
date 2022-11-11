@@ -1,16 +1,19 @@
 package com.cz.huawei_cloud_demo.controller;
 
 
+import com.cz.huawei_cloud_demo.service.ShopCarService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import utils.Result;
+import utils.entity.ShopCarCommodity;
 
 @RestController
 public class ShopCarController {
-
-    private final String SERVICE_NAME = "SHOPCAR80";
+    @Autowired
+    ShopCarService shopCarService;
 
     //购物车添加商品
     @PostMapping("/addShopCar")
@@ -21,7 +24,7 @@ public class ShopCarController {
     //根据用户id获取用户购物车所有商品
     @GetMapping("/getAllShopCarCommodity/{userId}")
     public Result getAllSCCommodity(@PathVariable("userId") String userId){
-        return null;
+        return shopCarService.getAllSCCommodity(userId);
     }
 
     //使用直接操作数据库的方式

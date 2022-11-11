@@ -1,10 +1,15 @@
 package com.cz.huawei_cloud_demo.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import utils.Result;
+import utils.entity.ShopCarCommodity;
+
+@Component
 @FeignClient(name = "SHOPCAR-8002")
 public interface ShopCarService {
         //购物车添加商品
@@ -25,6 +30,6 @@ public interface ShopCarService {
         public Result deleteShopCar(@PathVariable("shopCarId")String shopCarId,@PathVariable("userId")String userId);
 
         //删除用户选中的购物车商品
-        @PostMapping("deleteShopCars")
-        public Result deleteShopCars(String[] SCCommodityList,String userId);
+        @PostMapping("deleteShopCars/{userId}")
+        public Result deleteShopCars(String[] SCCommodityList,@PathVariable("userId") String userId);
 }

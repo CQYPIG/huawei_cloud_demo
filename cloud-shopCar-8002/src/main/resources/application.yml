@@ -34,7 +34,7 @@ mybatis:
     local-cache-scope: session  #一级缓存指定为session级别
   #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   # 设置自动设置别名的实体类的位置
-  type-aliases-package: com.cz.huawei_cloud_demo.entity
+  type-aliases-package: utils.entity
   # 设置mapper映射文件的位置
   mapper-locations: classpath:mappers/*.xml
 

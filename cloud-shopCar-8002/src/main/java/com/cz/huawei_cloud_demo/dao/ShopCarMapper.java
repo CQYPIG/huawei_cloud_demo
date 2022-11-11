@@ -1,11 +1,11 @@
 package com.cz.huawei_cloud_demo.dao;
 
 
-import com.cz.huawei_cloud_demo.entity.ShopCarCommodity;
-import com.cz.huawei_cloud_demo.entity.vo.ShopCarCommodityVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import utils.entity.ShopCarCommodity;
+import utils.entity.vo.ShopCarCommodityVo;
 
 import java.util.List;
 

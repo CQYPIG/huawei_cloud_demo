@@ -1,4 +1,4 @@
-package utils.entity;
+package utils.entity.vo;
 
 import lombok.Data;
 

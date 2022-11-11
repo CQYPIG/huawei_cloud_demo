@@ -1,15 +1,14 @@
 package com.cz.huawei_cloud_demo.controller;
 
 
-import com.cz.huawei_cloud_demo.entity.ShopCarCommodity;
 import com.cz.huawei_cloud_demo.service.ShopCarService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import utils.Result;
+import utils.entity.ShopCarCommodity;
 
 @RestController
 public class ShopCarController {
@@ -42,8 +41,8 @@ public class ShopCarController {
     }
 
     //删除用户选中的购物车商品
-    @PostMapping("deleteShopCars")
-    public Result deleteShopCars(String[] SCCommodityList,String userId){
+    @PostMapping("deleteShopCars/{userId}")
+    public Result deleteShopCars(String[] SCCommodityList,@PathVariable("userId") String userId){
         try {
             return shopCarService.deleteShopCars(SCCommodityList,userId);
         } catch (Exception e) {

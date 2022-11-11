@@ -1,9 +1,9 @@
 package com.cz.huawei_cloud_demo.dao;
 
 
-import com.cz.huawei_cloud_demo.entity.Order;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import utils.entity.Order;
 
 import java.util.List;
 

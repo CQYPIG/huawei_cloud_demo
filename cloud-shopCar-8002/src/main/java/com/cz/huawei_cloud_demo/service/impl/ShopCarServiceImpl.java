@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 
 import com.cz.huawei_cloud_demo.dao.OrderMapper;
 import com.cz.huawei_cloud_demo.dao.ShopCarMapper;
-import com.cz.huawei_cloud_demo.entity.ShopCarCommodity;
 import com.cz.huawei_cloud_demo.utils.MyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import utils.Result;
+import utils.entity.ShopCarCommodity;
 
 import java.util.List;
 

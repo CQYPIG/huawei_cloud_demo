@@ -29,14 +29,14 @@ public class RedisCacheConfig implements Cache {
     @Override
     public void putObject(Object key, Object value) {
         //使用redis中的hash类型作为缓存的存储类型
-        getRedisTemplate().opsForHash().put(id.toString(), key.toString(), value);
-        log.info("查询结果存入缓存：id:{} key:{} value:{}", id.toString(), key.toString(), value.toString());
+        getRedisTemplate().opsForHash().put(id, key.toString(), value);
+        log.info("查询结果存入缓存：id:{} key:{} value:{}", id, key, value);
     }
 
     @Override
     public Object getObject(Object key) {
         //获取存储的数据
-        Object value = getRedisTemplate().opsForHash().get(id.toString(), key.toString());
+        Object value = getRedisTemplate().opsForHash().get(id, key.toString());
         log.info("取到缓存内容：{}", value);
         return value;
     }
@@ -51,7 +51,7 @@ public class RedisCacheConfig implements Cache {
     @Override
     public void clear() {
         log.info("执行clear方法清空缓存。");
-        getRedisTemplate().delete(id.toString());//清空缓存
+        getRedisTemplate().delete(id);//清空缓存
     }
 
     @Override
@@ -70,7 +70,7 @@ public class RedisCacheConfig implements Cache {
     //封装redisTemplate
     private RedisTemplate getRedisTemplate() {
         //获取redisTemplate
-        RedisTemplate redisTemplate = (RedisTemplate) SpringBeanUtil.getBean("aaaa");
+        RedisTemplate<String,Object> redisTemplate = SpringBeanUtil.getBean("aaaa");
         redisTemplate.setValueSerializer(new StringRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
         return redisTemplate;
